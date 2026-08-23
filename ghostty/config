@@ -1,0 +1,19 @@
+# Style configs
+font-family="MonoLisa Nerd Font Bold"
+font-size=16
+font-thicken = true
+
+# Glass version
+#background=444444
+#background-opacity=0.45
+
+#Dark glassh
+background=000000
+background-opacity=0.75
+theme = Adventure
+
+# Key bindings
+keybind = ctrl+shift+t=new_window
+keybind = ctrl+l=next_tab
+keybind = ctrl+h=previous_tab
+keybind = ctrl+shift+n=new_tab
