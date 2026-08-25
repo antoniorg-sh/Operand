@@ -1,0 +1,104 @@
+
+set $mod Mod4
+set $term ghostty
+set $browser chromium
+
+output DP-1 mode 2560x1440@59.95Hz position 0 0
+output DP-2 mode 2560x1440@59.95Hz position 0 0
+
+output HDMI-A-1 mode 1920x1080@120Hz position -1080 0 transform 270
+
+output eDP-1 mode 1920x1080@60Hz position 960 2160
+
+output * bg /home/socratech/operand/man-walking.png fill
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec /home/socratech/operand/sway/scripts/display-toggle.sh default
+
+exec emacs --daemon
+
+default_border pixel 1
+default_floating_border pixel 1
+gaps inner 0
+gaps outer 0
+
+client.focused           #daefffd1  #daefffd1  #000000  #daefffd1  #daefffd1
+client.focused_inactive  #595959aa  #595959aa  #ffffff  #595959aa  #595959aa
+client.unfocused         #595959aa  #595959aa  #ffffff  #595959aa  #595959aa
+
+focus_follows_mouse yes
+seat * xcursor_theme default 24
+
+floating_modifier $mod normal
+
+bindsym $mod+t exec $term
+bindsym $mod+c kill
+bindsym $mod+v floating toggle
+bindsym $mod+b exec $browser
+bindsym $mod+m fullscreen toggle
+bindsym $mod+e exec emacs
+bindsym $mod+p exec emacs --init-directory=/home/socratech/.config/emacs-vanilla
+bindsym $mod+f exec firefox
+bindsym $mod+w exec /home/socratech/operand/sway/scripts/status.sh
+
+bindsym $mod+Shift+e exit
+bindsym $mod+Shift+m exec signal-desktop
+bindsym $mod+Shift+d exec discord
+bindsym $mod+Shift+t exec telegram
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r exec /home/socratech/operand/sway/scripts/display-toggle.sh
+
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+
+bindsym $mod+bracketright splith
+bindsym $mod+bracketleft splitv
+bindsym $mod+backslash layout toggle split
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+bindsym $mod+s scratchpad show
+bindsym $mod+Shift+s move scratchpad
+
+bindsym --whole-window $mod+button4 workspace prev_on_output
+bindsym --whole-window $mod+button5 workspace next_on_output
+
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessUp exec brightnessctl s 10%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+

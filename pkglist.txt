@@ -26,8 +26,6 @@ grub
 gst-libav
 gst-plugins-bad
 htop
-hyprland
-hyprpaper
 intel-ucode
 ispell
 less
@@ -63,4 +61,6 @@ vim
 waybar
 wireplumber
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-wlr
+sway
+swaybg

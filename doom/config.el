@@ -1,6 +1,6 @@
 (setq
- doom-font (font-spec :family "MonoLisa Nerd Font" :size 19 :weight 'semibold)
- doom-variable-pitch-font (font-spec :family "MonoLisa Nerd Font" :size 19 :weight 'bold))
+ doom-font (font-spec :family "MonoLisa Nerd Font" :size 16 :weight 'Regular)
+ doom-variable-pitch-font (font-spec :family "MonoLisa Nerd Font" :size 16 :weight 'bold))
 
 (setq doom-theme 'doom-dark+)
 
@@ -30,35 +30,24 @@
 
 (setq +doom-dashboard-ascii-banner-fn #'+doom-dashboard-ascii-banner-fn)
 
-;; Agenda scans DIRECTORIES NON-RECURSIVELY — a bare "~/brain/" only picked up
-;; TODOS.org and INDEX.org, so any task written in plans/, ventures/, journal/
-;; or tracking/ was silently invisible. Each folder must be listed explicitly.
 (after! org
   (setq org-agenda-files '("~/brain/"
                            "~/brain/plans/"
                            "~/brain/ventures/"
                            "~/brain/journal/"
                            "~/brain/tracking/"))
-  ;; Streak graph for habits (the daily-practice TODO uses :STYLE: habit).
   (add-to-list 'org-modules 'org-habit))
 
-;; SPC X t used to capture into ~/brain/todo.org — a second, competing task
-;; file. Point it at the real one.
 (setq +org-capture-todo-file "TODOS.org")
 
 (after! org
-  ;; Without org-log-done you know a task is DONE but not WHEN — which is
-  ;; exactly what habit streaks and any "did I actually practice daily?"
-  ;; question need to read.
   (setq org-log-done 'time
-        org-log-into-drawer t          ; keep the log noise folded away
-        org-habit-graph-column 60      ; where the streak graph starts
-        org-agenda-start-on-weekday 1  ; weeks begin Monday
+        org-log-into-drawer t
+        org-habit-graph-column 60
+        org-agenda-start-on-weekday 1
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t))
 
-;; Spelling: aspell with both dictionaries. F12 swaps language mid-buffer for
-;; the Spanish writing (language/palabras_para_la_abuela.org and journal).
 (after! ispell
   (setq ispell-program-name "aspell"
         ispell-dictionary "en_US"
@@ -76,8 +65,6 @@
 
 (map! :leader :desc "Toggle spell dictionary" "t d" #'+my/toggle-dictionary)
 
-;; Grammar: LanguageTool runs fully offline from the local Arch package
-;; (/usr/bin/languagetool). Nothing is uploaded.
 (after! langtool
   (setq langtool-default-language "en-US"))
 
