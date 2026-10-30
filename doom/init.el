@@ -40,8 +40,8 @@
 
        :editor
        (evil +everywhere)
-       file-templates
-       fold
+       ;;file-templates
+       ;;fold
        ;;(format +onsave)
        ;;god
        ;;lispy
@@ -61,7 +61,7 @@
        vc
 
        :term
-       eshell
+       ;;eshell
        ;;shell
        ;;term
        vterm
@@ -82,16 +82,16 @@
        ;;ein
        (eval +overlay)
        (lookup +dictionary)
-       lsp
-       magit
-       make
+       (lsp +eglot) 
+       ;magit
+       ;;make
        ;;pass
        pdf
        ;;prodigy
        terraform
        ;;tmux
        ;;tree-sitter
-       upload
+       ;;upload
 
        :os
        (:if (featurep :system 'macos) macos)
@@ -127,13 +127,13 @@
        ;;idris
        json
        ;;(java +lsp)
-       (javascript +lsp)
+       ;;(javascript +lsp)
        ;;julia
        ;;kotlin
        ;;latex
        ;;lean
        ;;ledger
-       lua
+       ;;lua
        markdown
        ;;nim
        ;;nix
@@ -158,7 +158,7 @@
        ;;solidity
        ;;swift
        ;;terra
-       (web +lsp)
+       ;;(web +lsp)
        yaml
        ;;zig
 

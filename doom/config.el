@@ -158,4 +158,7 @@
                  "* TODO Read: %:elfeed-entry-title\n  Source: %:elfeed-entry-link\n  Tags: %:elfeed-entry-tags\n  Captured: %U\n"
                  :empty-lines 1)))
 
+(after! eglot
+  (set-eglot-client! '(python-mode python-ts-mode) '("pyright-langserver" "--stdio")))
+
 
