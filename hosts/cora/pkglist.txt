@@ -19,6 +19,7 @@ openssh
 ripgrep
 sudo
 sway
+swayidle
 tailscale
 tmux
 ttf-dejavu
