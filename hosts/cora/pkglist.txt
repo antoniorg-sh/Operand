@@ -1,5 +1,6 @@
 arch-audit
 base
+bubblewrap
 curl
 efibootmgr
 ghostty
@@ -17,6 +18,7 @@ networkmanager
 nftables
 openssh
 ripgrep
+socat
 sudo
 sway
 swayidle
